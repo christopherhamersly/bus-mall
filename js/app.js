@@ -1,13 +1,13 @@
 'use strict';
 
-// alert('im alive');
-// global variables;
+alert('im alive');
 
-var rabbit = document.getElementById('busMall1');
+// global variables;
+var parent = document.getElementById('busMall1');
 var allBusMall = [];
 var runs = 25;
 
-// constructor function
+// // constructor function
 function BusMallImage(url, name){
   this.url = url;
   this.name = name;
@@ -42,11 +42,11 @@ BusMallImage.prototype.appendChild = function (){
   var imageElement = document.createElement('img');
   imageElement.setAttribute('src', this.url);
   imageElement.setAttribute('name', this.name);
-  rabbit.appendChild(imageElement);
+  parent.appendChild(imageElement);
 };
 
 function getRandomPicture(){
-  rabbit.textContent ='';
+  parent.textContent ='';
 
   var randomIndex = randomNumber(0, allBusMall.length-1);
   var secondRandomIndex = randomNumber(0, allBusMall.length-1);
@@ -72,37 +72,38 @@ function getRandomPicture(){
   allBusMall[thirdRandomIndex].votes;
 }
 
-function whenClicked(){
-rabbit.addEventListener('click', function(){
-  var busMallImageClickedOn = event.target.title;
+// function whenClicked(){
+// parent.addEventListener('click', function(){
+//   var busMallImageClickedOn = event.target.title;
 
-  for (var i=0; i<allBusMall.length; i++){
-    if(busMallImageClickedOn === allBusMall[i].title){
-      allBusMall[i].votes++;
-    }
-    else if (i===runs){
-    rabbit.removeEventListener('click', function(){
-    })
-  }
+//   for (var i=0; i<allBusMall.length; i++){
+//     if(busMallImageClickedOn === allBusMall[i].title){
+//       allBusMall[i].votes++;
+//     }
+//     // else if (i===runs){
+//     // parent.removeEventListener('click', function(){
+//     // })
+//   }
+// }
+//   getRandomPicture()
 
-  getRandomPicture();
+// // }
 
-}
 
-function tabulatingResults(){
-  var string = `${this.name} had ${this.votes} votes and was shown ${this.views} times`;
-  var returnString = document.createElement('p')
-  returnString.textContent = string;
-  returnString.appendChild(returnString);
-}
+// // function tabulatingResults(){
+// //   var string = `${this.name} had ${this.votes} votes and was shown ${this.views} times`;
+// //   var returnString = document.createElement('p')
+// //   returnString.textContent = string;
+// //   returnString.appendChild(returnString);
+// // }
 
-tabulatingResults();
 getRandomPicture();
-whenClicked();
+// whenClicked();
+// // tabulatingResults();
 
 function randomNumber(min, max){
   return Math.floor(Math.random()*(max-min+1))+min;
-
+}
 
 
 
