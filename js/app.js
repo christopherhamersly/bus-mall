@@ -3,9 +3,9 @@
 alert('im alive');
 
 // global variables;
-var parent = document.getElementById('busMall1');
+var rabbit = document.getElementById('busMall1');
 var allBusMall = [];
-var runs = 25;
+var totalVotes = 0;
 
 // // constructor function
 function BusMallImage(url, name){
@@ -42,11 +42,11 @@ BusMallImage.prototype.appendChild = function (){
   var imageElement = document.createElement('img');
   imageElement.setAttribute('src', this.url);
   imageElement.setAttribute('name', this.name);
-  parent.appendChild(imageElement);
+  rabbit.appendChild(imageElement);
 };
 
 function getRandomPicture(){
-  parent.textContent ='';
+  rabbit.textContent ='';
 
   var randomIndex = randomNumber(0, allBusMall.length-1);
   var secondRandomIndex = randomNumber(0, allBusMall.length-1);
@@ -72,20 +72,24 @@ function getRandomPicture(){
   allBusMall[thirdRandomIndex].votes;
 }
 
-// function whenClicked(){
-// parent.addEventListener('click', function(){
-//   var busMallImageClickedOn = event.target.title;
+function whenClicked(){
+rabbit.addEventListener('click', function(){
+  var busMallImageClickedOn = event.target.name;
 
-//   for (var i=0; i<allBusMall.length; i++){
-//     if(busMallImageClickedOn === allBusMall[i].title){
-//       allBusMall[i].votes++;
-//     }
+  for (var i=0; i<allBusMall.length; i++){
+    if(busMallImageClickedOn === allBusMall[i].title){
+      allBusMall[i].votes++;
+      totalVotes++;
+
+      if (totalVotes === 25){
+        rabbit.removeEventListener('click', function(){
+      }
 //     // else if (i===runs){
-//     // parent.removeEventListener('click', function(){
+//     // rabbit.removeEventListener('click', function(){
 //     // })
 //   }
 // }
-//   getRandomPicture()
+//   getRandomPicture();
 
 // // }
 
@@ -97,6 +101,7 @@ function getRandomPicture(){
 // //   returnString.appendChild(returnString);
 // // }
 
+// rabbit.addEventListener('click', handleClick);
 getRandomPicture();
 // whenClicked();
 // // tabulatingResults();
@@ -104,11 +109,3 @@ getRandomPicture();
 function randomNumber(min, max){
   return Math.floor(Math.random()*(max-min+1))+min;
 }
-
-
-
-
-
-
-
-
