@@ -5,8 +5,7 @@ alert('im alive');
 // global variables;
 var rabbit = document.getElementById('busMall1');
 var allBusMall = [];
-var totalVotes = 0;
-
+var runs = 3;
 // // constructor function
 function BusMallImage(url, name){
   this.url = url;
@@ -72,40 +71,25 @@ function getRandomPicture(){
   allBusMall[thirdRandomIndex].votes;
 }
 
-function whenClicked(){
-rabbit.addEventListener('click', function(){
+parent.addEventListener('click', function(){
   var busMallImageClickedOn = event.target.name;
 
   for (var i=0; i<allBusMall.length; i++){
-    if(busMallImageClickedOn === allBusMall[i].title){
+    if(busMallImageClickedOn === allBusMall[i].name){
       allBusMall[i].votes++;
-      totalVotes++;
+    }
+    else if (i === runs){
+      parent.removeEventListener('click', function(){
 
-      if (totalVotes === 25){
-        rabbit.removeEventListener('click', function(){
-      }
-//     // else if (i===runs){
-//     // rabbit.removeEventListener('click', function(){
-//     // })
-//   }
-// }
-//   getRandomPicture();
-
-// // }
-
-
-// // function tabulatingResults(){
-// //   var string = `${this.name} had ${this.votes} votes and was shown ${this.views} times`;
-// //   var returnString = document.createElement('p')
-// //   returnString.textContent = string;
-// //   returnString.appendChild(returnString);
-// // }
-
-// rabbit.addEventListener('click', handleClick);
-getRandomPicture();
-// whenClicked();
-// // tabulatingResults();
-
+      });
+    }
+    getRandomPicture();
+  }
+});
 function randomNumber(min, max){
   return Math.floor(Math.random()*(max-min+1))+min;
 }
+
+getRandomPicture();
+
+
