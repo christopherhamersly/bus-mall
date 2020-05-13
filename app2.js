@@ -51,7 +51,7 @@ function getRandomIndex(){
     index = getRandomNumber(allBusMall.length);
   }
   uniqueIndexArray.push(index);
-  if(uniqueIndexArray > 6){
+  if(uniqueIndexArray.length > 6){
     uniqueIndexArray.shift();
   }
   return index;
@@ -69,7 +69,7 @@ function displayImage(){
   allBusMall[index].render();
 }
 
-function handleClick(){
+function handleClick(event){
   parentElement.textContent = '';
   var titleOfTheThingThatWasClickedOn =  event.target.title;
 
