@@ -1,11 +1,15 @@
 
 
 canvas {
-  border: 2px solid black;
+  
   width: 400px;
   height: 400px;
 }
 img{
   
   width: 20%;
+}
+
+canvas {
+  width: 450px;
 }
