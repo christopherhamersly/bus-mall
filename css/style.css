@@ -10,6 +10,6 @@ img{
   width: 20%;
 }
 
-canvas {
-  width: 450px;
+#myChart {
+  width: 400px;
 }

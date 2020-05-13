@@ -118,11 +118,11 @@ function generateChart(){
         label: '# of Votes',
         data: votes,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
+          'rgba(26, 40, 31, 0.2)',
+          'rgba(92, 82, 85, 0.2)',
+          'rgba(206, 123, 145, 0.2)',
+          'rgba(192, 232, 249, 0.2)',
+          'rgba(184, 211, 209, 0.2)',
           'rgba(255, 159, 64, 0.2)'
         ],
         borderColor: [
