@@ -1,4 +1,5 @@
 'use strict';
+
 var uniqueIndexArray = [];
 var allBusMall = [];
 var parentElement = document.getElementById('busMall');
@@ -6,6 +7,39 @@ var totalVotes = 0;
 var names = [];
 var votes =[];
 var views=[];
+
+if (localStorage.getItem('busMall'=== null)){
+
+  new BusmallImage('bag', '.jpg');
+  new BusmallImage('banana', '.jpg');
+  new BusmallImage('bathroom', '.jpg');
+  new BusmallImage('boots', '.jpg');
+  new BusmallImage('breakfast', '.jpg');
+  new BusmallImage('bubblegum', '.jpg');
+  new BusmallImage('chair', '.jpg');
+  new BusmallImage('cthulhu', '.jpg');
+  new BusmallImage('dog-duck', '.jpg');
+  new BusmallImage('dragon', '.jpg');
+  new BusmallImage('pen', '.jpg');
+  new BusmallImage('pet-sweep', '.jpg');
+  new BusmallImage('scissors', '.jpg');
+  new BusmallImage('shark', '.jpg');
+  new BusmallImage('sweep', '.png');
+  new BusmallImage('tauntaun', '.jpg');
+  new BusmallImage('unicorn', '.jpg');
+  new BusmallImage('usb', '.gif');
+  new BusmallImage('water-can', '.jpg');
+  new BusmallImage('wine-glass', '.jpg');
+
+} else {
+  var localStorageItems = localStorage.getItem('busMall');
+  var parsedLocalStorageArray = JSON.parse(localStorageItems);
+  for (var i=0; i<parsedLocalStorageArray.length; i++){
+    new BusmallImage(parsedLocalStorageArray[i].title,
+      parsedLocalStorageArray[i].filepath.slice(parsedLocalStorageArray[i].filepath.length-4),parsedLocalStorageArray[i].views, parsedLocalStorageArray[i].votes);
+  }
+}
+
 
 function BusmallImage(name, extension){
   this.filepath = `img/${name}${extension}`;
@@ -23,30 +57,6 @@ BusmallImage.prototype.render = function(){
   parentElement.appendChild(imageElement);
 };
 
-new BusmallImage('bag', '.jpg');
-new BusmallImage('banana', '.jpg');
-new BusmallImage('bathroom', '.jpg');
-new BusmallImage('boots', '.jpg');
-new BusmallImage('breakfast', '.jpg');
-new BusmallImage('bubblegum', '.jpg');
-new BusmallImage('chair', '.jpg');
-new BusmallImage('cthulhu', '.jpg');
-new BusmallImage('dog-duck', '.jpg');
-new BusmallImage('dragon', '.jpg');
-new BusmallImage('pen', '.jpg');
-new BusmallImage('pet-sweep', '.jpg');
-new BusmallImage('scissors', '.jpg');
-new BusmallImage('shark', '.jpg');
-new BusmallImage('sweep', '.png');
-new BusmallImage('tauntaun', '.jpg');
-new BusmallImage('unicorn', '.jpg');
-new BusmallImage('usb', '.gif');
-new BusmallImage('water-can', '.jpg');
-new BusmallImage('wine-glass', '.jpg');
-
-
-var stringifiedBusMall = JSON.stringify(allBusMall);
-localStorage.setItem('busMall', stringifiedBusMall);
 
 function getRandomIndex(){
 
@@ -83,6 +93,9 @@ function handleClick(event){
       allBusMall[i].votes++,
       totalVotes++;
 
+      var stringifiedBusMall = JSON.stringify(allBusMall);
+      localStorage.setItem('busMall', stringifiedBusMall);
+
 
       if(totalVotes === 25){
         parentElement.removeEventListener('click', handleClick);
@@ -103,7 +116,6 @@ displayImage();
 
 parentElement.addEventListener('click', handleClick);
 
-returnJsontoJava();
 
 function makeNamesArray(){
   for(var i=0; i<allBusMall.length; i++){
@@ -115,9 +127,7 @@ function makeNamesArray(){
   generateChart();
 }
 
-function returnJsontoJava (){
-  localStorage.getItem('busmall');
-}
+
 
 
 
