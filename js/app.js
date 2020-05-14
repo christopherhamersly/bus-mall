@@ -3,11 +3,12 @@
 // alert('im alive');
 
 // global variables;
-var rabbit = document.getElementById('busMall1');
+var parentElement = document.getElementById('busMall1');
 var allBusMall = [];
 var runs = 2;
-var votes = 0;
-var views = 0;
+var totalVotes = 0;
+var names = [];
+var votes = [];
 
 // // constructor function
 function BusMallImage(url, name){
@@ -44,7 +45,7 @@ BusMallImage.prototype.appendChild = function (){
   var imageElement = document.createElement('img');
   imageElement.setAttribute('src', this.url);
   imageElement.setAttribute('name', this.name);
-  rabbit.appendChild(imageElement);
+  .appendChild(imageElement);
 };
 
 // function getRandomPicture(){

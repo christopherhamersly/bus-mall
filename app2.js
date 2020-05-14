@@ -32,7 +32,7 @@ if (localStorage.getItem('busMall'=== null)){
   new BusmallImage('wine-glass', '.jpg');
 
 } else {
-  var localStorageItems = localStorage.getItem('busMall', votes = 0, views = 0);
+  var localStorageItems = localStorage.getItem('busMall');
   var parsedLocalStorageArray = JSON.parse(localStorageItems);
   for (var i=0; i<parsedLocalStorageArray.length; i++){
     new BusmallImage(parsedLocalStorageArray[i].title,
@@ -41,12 +41,12 @@ if (localStorage.getItem('busMall'=== null)){
 }
 
 
-function BusmallImage(name, extension){
+function BusmallImage(name, extension, views=0, votes=0){
   this.filepath = `img/${name}${extension}`;
   this.alt = name;
   this.title = name;
-  this.votes = 0;
-  this.views = 0;
+  this.votes = votes;
+  this.views = views;
   allBusMall.push(this);
 }
 BusmallImage.prototype.render = function(){
