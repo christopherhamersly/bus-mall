@@ -6,7 +6,11 @@ h1{
   background-size: 1400px;
   height: 300px;
   padding-top: 30px;
-  color: rgb(129, 126, 121);
+  color: rgb(223, 220, 215);
+  text-shadow: 5px 5px rgb(0, 0, 0);
+  opacity: 85%;
+
+  
 }
 
 h1:hover{
@@ -15,35 +19,49 @@ h1:hover{
   color: black;
 }
 
-li {
+a {
   display: inline;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   position: relative;
-  left: 270px;
-  top: 40px;
+  left: 350px;
+  top: 60px;
   background-color: rgb(201, 185, 165);
   padding: 30px;
   color: azure;
   transition: 5s;
+  border-radius: 10px;
 }
-li:hover{
+a:hover{
   color: black;
-  background-color: coral;
+  background-color: rgb(70, 53, 47);
+  border-radius: 0px;
+
+  
 }
 canvas {
   
   width: 400px;
   height: 400px;
 }
+
 img{
   
   width: 30%;
   position: relative;
   left: 60px;
-  top: 80px;
+  top: 100px;
 }
 
 #myChart {
+  position: relative;
   width: 400px;
+  top: 100px
+}
+
+p{
+  position: relative;
+  top: 120px;
+  text-indent: 30px;
+  font-size: 20px;
 }
