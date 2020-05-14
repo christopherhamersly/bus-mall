@@ -103,15 +103,21 @@ displayImage();
 
 parentElement.addEventListener('click', handleClick);
 
+returnJsontoJava();
+
 function makeNamesArray(){
   for(var i=0; i<allBusMall.length; i++){
     names.push(allBusMall[i].title);
     votes.push(allBusMall[i].votes);
     views.push(allBusMall[i].views);
+
   }
   generateChart();
 }
 
+function returnJsontoJava (){
+  localStorage.getItem('busmall');
+}
 
 
 
