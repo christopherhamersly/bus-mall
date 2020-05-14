@@ -6,7 +6,7 @@ var parentElement = document.getElementById('busMall');
 var totalVotes = 0;
 var names = [];
 var votes = [];
-var views= [];
+
 
 if (localStorage.getItem('busMall'=== null)){
 
@@ -124,7 +124,7 @@ function makeNamesArray(){
   for(var i=0; i<allBusMall.length; i++){
     names.push(allBusMall[i].title);
     votes.push(allBusMall[i].votes);
-    views.push(allBusMall[i].views);
+
 
   }
   generateChart();
